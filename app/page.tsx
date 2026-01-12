@@ -90,7 +90,7 @@ export default function IntegracaoSocial() {
 
   const addPost = () => {
     if (!newPost.trim()) return;
-    const updated = { ...posts };
+    const updated: any = { ...posts };
     updated[selectedCategory] = updated[selectedCategory] || [];
     updated[selectedCategory].unshift({
       author: "Você",
@@ -101,8 +101,8 @@ export default function IntegracaoSocial() {
     setNewPost("");
   };
 
-  const likePost = (index) => {
-    const updated = { ...posts };
+  const likePost = (index: any) => {
+    const updated: any = { ...posts };
     updated[selectedCategory][index].likes++;
     setPosts(updated);
   };
@@ -153,7 +153,7 @@ export default function IntegracaoSocial() {
             </CardContent>
           </Card>
 
-          {(posts[selectedCategory] || []).map((post, i) => (
+          {(posts[selectedCategory] || []).map((post:any, i:any) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 15 }}
