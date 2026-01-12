@@ -14,7 +14,7 @@ const categories = [
   "Memórias Culturais",
   "Tradições",
   "Relatos de Vida",
-];
+] as const;
 
 const initialPosts = {
   "Histórias de Infância": [
@@ -84,7 +84,10 @@ const initialPosts = {
 };
 
 export default function IntegracaoSocial() {
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  type Category = typeof categories[number];
+
+  const [selectedCategory, setSelectedCategory] =
+  useState<Category>(categories[0]);
   const [posts, setPosts] = useState(initialPosts);
   const [newPost, setNewPost] = useState("");
 
@@ -153,7 +156,7 @@ export default function IntegracaoSocial() {
             </CardContent>
           </Card>
 
-          {(posts[selectedCategory] || []).map((post:any, i:any) => (
+          {posts[selectedCategory].map((post:any, i:any) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 15 }}
